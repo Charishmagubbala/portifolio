@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gubbala Lakshmi Durga Charishma — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F6F3;
+    --paper-raised:#EEEFE9;
+    --ink:#14181F;
+    --slate:#5B6472;
+    --teal:#1F5C4E;
+    --teal-deep:#163F35;
+    --amber:#D9A23B;
+    --line:#DADCD4;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--amber); color:var(--ink); }
+
+  a{ color:inherit; }
+
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---- NAV ---- */
+  nav{
+    position:sticky; top:0; z-index:20;
+    background:rgba(245,246,243,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:56px;
+  }
+  .nav-mark{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.02em;
+    color:var(--teal-deep);
+  }
+  .nav-links{ display:flex; gap:28px; list-style:none; }
+  .nav-links a{
+    font-size:14px;
+    text-decoration:none;
+    color:var(--slate);
+    transition:color .15s ease;
+  }
+  .nav-links a:hover{ color:var(--ink); }
+
+  /* ---- HERO ---- */
+  header.hero{
+    padding:96px 0 72px;
+    border-bottom:1px solid var(--line);
+  }
+  .kicker{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--teal);
+    background:rgba(31,92,78,0.08);
+    border:1px solid rgba(31,92,78,0.25);
+    padding:5px 11px;
+    border-radius:3px;
+    margin-bottom:28px;
+  }
+  .kicker::before{
+    content:"";
+    width:6px; height:6px; border-radius:50%;
+    background:var(--teal);
+    display:inline-block;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(34px, 5vw, 48px);
+    line-height:1.12;
+    letter-spacing:-0.01em;
+    max-width:11ch;
+  }
+  .role{
+    margin-top:18px;
+    font-size:19px;
+    color:var(--slate);
+    max-width:42ch;
+  }
+  .hero-meta{
+    margin-top:36px;
+    display:flex; flex-wrap:wrap; gap:20px 28px;
+    font-size:14px;
+    color:var(--slate);
+  }
+  .hero-meta a{ text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:1px; }
+  .hero-meta a:hover{ border-color:var(--teal); color:var(--teal-deep); }
+
+  /* ---- SECTION shared ---- */
+  section{ padding:64px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+  .sec-head{
+    display:flex; align-items:baseline; gap:14px;
+    margin-bottom:32px;
+  }
+  .sec-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--amber);
+  }
+  h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:26px;
+    letter-spacing:-0.005em;
+  }
+  .lede{
+    font-size:16.5px;
+    color:var(--ink);
+    max-width:62ch;
+  }
+  .lede + .lede{ margin-top:14px; }
+
+  /* ---- SKILLS ---- */
+  .skill-group{ margin-bottom:22px; }
+  .skill-group:last-child{ margin-bottom:0; }
+  .skill-group-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--slate);
+    margin-bottom:10px;
+    display:block;
+  }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{
+    font-size:14px;
+    padding:6px 12px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    background:var(--paper-raised);
+    color:var(--ink);
+  }
+  .chip.growth{
+    border-style:dashed;
+    border-color:var(--amber);
+    color:var(--teal-deep);
+    background:transparent;
+  }
+
+  /* ---- PROJECTS (test-run log motif) ---- */
+  .case{
+    border:1px solid var(--line);
+    border-radius:5px;
+    padding:24px 26px;
+    background:var(--paper-raised);
+    margin-bottom:18px;
+  }
+  .case:last-child{ margin-bottom:0; }
+  .case-top{
+    display:flex; align-items:flex-start; justify-content:space-between;
+    gap:16px;
+    margin-bottom:10px;
+  }
+  .case-title{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:19px;
+  }
+  .status{
+    flex-shrink:0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.03em;
+    color:var(--teal-deep);
+    background:rgba(31,92,78,0.1);
+    border:1px solid rgba(31,92,78,0.3);
+    padding:3px 9px;
+    border-radius:3px;
+    white-space:nowrap;
+    margin-top:3px;
+  }
+  .case-desc{ color:var(--slate); font-size:15px; margin-bottom:14px; }
+  .case ul{ list-style:none; }
+  .case li{
+    position:relative;
+    padding-left:20px;
+    font-size:14.5px;
+    margin-bottom:7px;
+    color:var(--ink);
+  }
+  .case li::before{
+    content:"›";
+    position:absolute; left:2px; top:0;
+    color:var(--amber);
+    font-weight:600;
+  }
+  .case li:last-child{ margin-bottom:0; }
+  .stack-row{
+    display:flex; flex-wrap:wrap; gap:6px;
+    margin-top:14px;
+  }
+  .stack-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--slate);
+    border:1px solid var(--line);
+    padding:2px 8px;
+    border-radius:3px;
+  }
+
+  /* ---- EDUCATION timeline ---- */
+  .tl-item{
+    display:grid;
+    grid-template-columns:100px 1fr;
+    gap:20px;
+    padding:16px 0;
+    border-top:1px solid var(--line);
+  }
+  .tl-item:first-child{ border-top:none; }
+  .tl-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--slate);
+    padding-top:2px;
+  }
+  .tl-title{ font-weight:600; font-size:15.5px; }
+  .tl-org{ color:var(--slate); font-size:14px; margin-top:3px; }
+
+  /* ---- CONTACT / FOOTER ---- */
+  .contact-panel{
+    background:var(--teal-deep);
+    color:#EEF3F0;
+    border-radius:6px;
+    padding:44px 40px;
+    display:flex; flex-direction:column; gap:20px;
+  }
+  .contact-panel h2{ color:#fff; }
+  .contact-panel .lede{ color:#C9D6CE; }
+  .contact-row{ display:flex; flex-wrap:wrap; gap:14px; margin-top:8px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:14.5px; font-weight:500;
+    padding:11px 20px;
+    border-radius:4px;
+    text-decoration:none;
+    border:1px solid transparent;
+  }
+  .btn-primary{ background:var(--amber); color:var(--teal-deep); }
+  .btn-primary:hover{ background:#e5b155; }
+  .btn-ghost{ border-color:rgba(255,255,255,0.3); color:#EEF3F0; }
+  .btn-ghost:hover{ border-color:#fff; }
+
+  footer{
+    padding:32px 0 56px;
+    font-size:13px;
+    color:var(--slate);
+    text-align:center;
+  }
+
+  @media (max-width:600px){
+    header.hero{ padding:72px 0 48px; }
+    .nav-links{ gap:16px; }
+    .tl-item{ grid-template-columns:1fr; gap:4px; }
+    .contact-panel{ padding:32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="nav-mark">GLDC / portfolio</span>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">Open to Associate Analyst roles</span>
+    <h1>Gubbala Lakshmi Durga Charishma</h1>
+    <p class="role">Quality Engineering &amp; Automation Testing candidate — grounded in Java, Python, and REST API validation, building toward test automation.</p>
+    <div class="hero-meta">
+      <span>Hyderabad, Telangana</span>
+      <a href="mailto:charishma.gubbala@gmail.com">charishma.gubbala@gmail.com</a>
+      <a href="tel:+918184940221">+91 81849 40221</a>
+      <a href="https://linkedin.com/in/charishma-gubbala-3b453026" target="_blank" rel="noopener">linkedin.com/in/charishma-gubbala</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2>About</h2></div>
+    <p class="lede">I'm an Electronics and Communication Engineering graduate who found my footing in software through building — and then testing — full-stack applications. Along the way I spent as much time validating REST APIs, tracing bugs, and rewriting failing test scenarios as I did writing the original features, and that's the part of the work I want to do on purpose.</p>
+    <p class="lede">I'm early in automation specifically, but I learn fast, document what I find, and I'd rather tell you plainly what I know than pad a list. Right now that means solid fundamentals in Java, Python, and SQL, real experience with the SDLC and Agile teams, and active work closing the gap on Selenium, Postman, and CI/CD tooling.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Skills</h2></div>
+
+    <div class="skill-group">
+      <span class="skill-group-label">// testing &amp; qa foundations</span>
+      <div class="chip-row">
+        <span class="chip">SDLC</span>
+        <span class="chip">Functional Testing</span>
+        <span class="chip">Requirement-Based Test Design</span>
+        <span class="chip">REST API Validation</span>
+        <span class="chip">Defect Identification &amp; Debugging</span>
+        <span class="chip">Unit Testing</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <span class="skill-group-label">// programming</span>
+      <div class="chip-row">
+        <span class="chip">Java</span>
+        <span class="chip">Python</span>
+        <span class="chip">SQL</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <span class="skill-group-label">// web &amp; backend</span>
+      <div class="chip-row">
+        <span class="chip">HTML</span>
+        <span class="chip">CSS</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">Spring Boot</span>
+        <span class="chip">Hibernate / JPA</span>
+        <span class="chip">REST API Design</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <span class="skill-group-label">// database &amp; tools</span>
+      <div class="chip-row">
+        <span class="chip">MySQL</span>
+        <span class="chip">DBMS</span>
+        <span class="chip">Git / GitHub</span>
+        <span class="chip">Agile / Scrum</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <span class="skill-group-label">// currently building</span>
+      <div class="chip-row">
+        <span class="chip growth">Selenium WebDriver</span>
+        <span class="chip growth">Postman / REST Assured</span>
+        <span class="chip growth">TestNG / JUnit</span>
+        <span class="chip growth">Jenkins &amp; CI/CD</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><h2>Projects</h2></div>
+
+    <div class="case">
+      <div class="case-top">
+        <span class="case-title">Employee Management System</span>
+        <span class="status">STATUS · SHIPPED</span>
+      </div>
+      <p class="case-desc">A full-stack CRUD application for managing employee records, built to practice the full lifecycle from API design through testing and debugging.</p>
+      <ul>
+        <li>Built the backend with Java, Spring Boot, Hibernate/JPA, and MySQL, applying object-oriented design and secure coding principles.</li>
+        <li>Designed, tested, and validated REST APIs for create, retrieve, update, and delete operations — writing test scenarios and verifying responses.</li>
+        <li>Debugged endpoint failures throughout development and ran functional/regression checks on the HTML/CSS/JavaScript front end.</li>
+      </ul>
+      <div class="stack-row">
+        <span class="stack-tag">Java</span><span class="stack-tag">Spring Boot</span><span class="stack-tag">Hibernate</span><span class="stack-tag">MySQL</span><span class="stack-tag">REST API</span>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-top">
+        <span class="case-title">Early Detection of Alzheimer's Disease using Image Processing</span>
+        <span class="status">STATUS · SHIPPED</span>
+      </div>
+      <p class="case-desc">An academic project applying image-processing techniques to identify patterns relevant to early Alzheimer's detection.</p>
+      <ul>
+        <li>Translated a research problem into a working technical solution using image-processing and analysis techniques.</li>
+        <li>Practiced requirements analysis and iterative testing/debugging to refine detection accuracy — the same structured verification mindset that carries over to test-case design.</li>
+      </ul>
+      <div class="stack-row">
+        <span class="stack-tag">Image Processing</span><span class="stack-tag">Python</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><h2>Education</h2></div>
+
+    <div class="tl-item">
+      <div class="tl-date">2021 – 2025</div>
+      <div>
+        <div class="tl-title">B.Tech, Electronics and Communication Engineering</div>
+        <div class="tl-org">Pragati Engineering College — CGPA 6.89</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2019 – 2021</div>
+      <div>
+        <div class="tl-title">Intermediate (MPC)</div>
+        <div class="tl-org">Sri Sai Aditya Junior College — 85%</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2019</div>
+      <div>
+        <div class="tl-title">SSC</div>
+        <div class="tl-org">St. John's English Medium School — CGPA 10.00</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="contact-panel">
+      <h2>Let's talk</h2>
+      <p class="lede">I'm actively looking for Associate Analyst / QA opportunities where I can grow into automation testing properly. Reach out — I reply quickly.</p>
+      <div class="contact-row">
+        <a class="btn btn-primary" href="mailto:charishma.gubbala@gmail.com">Email me</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/charishma-gubbala-3b453026" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        <a class="btn btn-ghost" href="tel:+918184940221">Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Gubbala Lakshmi Durga Charishma · Hyderabad, Telangana
+</footer>
+
+</body>
+</html>
